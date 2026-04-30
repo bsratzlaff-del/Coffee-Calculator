@@ -1,0 +1,25 @@
+# Source Control ignore for .NET / MAUI
+
+# Build Folders
+bin/
+obj/
+publish/
+
+# IDE Specific
+.vs/
+.vscode/
+*.user
+*.userosscacheg
+*.sln.docstates
+
+# Packages & OS
+packages/
+*.nupkg
+.DS_Store
+Thumbs.db
+
+# MAUI / Mobile Specific
+.meteor/
+.awork/
+.gradle/
+Captures/
