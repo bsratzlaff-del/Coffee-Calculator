@@ -1,0 +1,31 @@
+# --- Build Artifacts ---
+bin/
+obj/
+publish/
+
+# --- IDE Specific ---
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+.idea/
+
+# --- Operating System Junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- .NET / MAUI Specific ---
+*.nupkg
+packages/
+.awork/
+.gradle/
+.meteor/
+
+# --- User Secrets & Environment ---
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.orig
