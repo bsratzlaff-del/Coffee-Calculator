@@ -1,31 +1,37 @@
 # --- Build Artifacts ---
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
 publish/
+out/
 
 # --- IDE Specific ---
 .vs/
 .vscode/
+.idea/
 *.user
 *.userosscache
 *.sln.docstates
-.idea/
+*.suo
 
 # --- Operating System Junk ---
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# --- .NET / MAUI Specific ---
+# --- .NET / MAUI / Mobile Specific ---
 *.nupkg
 packages/
-.awork/
-.gradle/
-.meteor/
+.maui/
+*.apk
+*.aab
+*.ipa
+*.app
+*.appx
+*.msix
+*.keystore
+*.jks
 
-# --- User Secrets & Environment ---
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+# --- Local Environment ---
+.env
+appsettings.Development.json
 *.orig
