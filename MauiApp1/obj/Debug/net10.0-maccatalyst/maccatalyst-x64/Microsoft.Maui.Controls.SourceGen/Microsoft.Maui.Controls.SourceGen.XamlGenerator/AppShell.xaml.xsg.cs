@@ -41,10 +41,10 @@ public partial class AppShell
 			return;
 		}
 
-		var dataTemplateExtension = new global::Microsoft.Maui.Controls.DataTemplate(typeof(global::MauiApp1.MainPage));
-		global::Microsoft.Maui.VisualDiagnostics.RegisterSourceInfo(dataTemplateExtension!, new global::System.Uri(@"AppShell.xaml;assembly=MauiApp1", global::System.UriKind.Relative), 11, 9);
+		var dataTemplateExtension = new global::Microsoft.Maui.Controls.DataTemplate(typeof(global::MauiApp1.Views.MainPage));
+		global::Microsoft.Maui.VisualDiagnostics.RegisterSourceInfo(dataTemplateExtension!, new global::System.Uri(@"AppShell.xaml;assembly=MauiApp1", global::System.UriKind.Relative), 12, 9);
 		var shellContent = new global::Microsoft.Maui.Controls.ShellContent();
-		global::Microsoft.Maui.VisualDiagnostics.RegisterSourceInfo(shellContent!, new global::System.Uri(@"AppShell.xaml;assembly=MauiApp1", global::System.UriKind.Relative), 9, 6);
+		global::Microsoft.Maui.VisualDiagnostics.RegisterSourceInfo(shellContent!, new global::System.Uri(@"AppShell.xaml;assembly=MauiApp1", global::System.UriKind.Relative), 10, 6);
 		var __root = this;
 		global::Microsoft.Maui.VisualDiagnostics.RegisterSourceInfo(__root!, new global::System.Uri(@"AppShell.xaml;assembly=MauiApp1", global::System.UriKind.Relative), 2, 2);
 #if !_MAUIXAML_SG_NAMESCOPE_DISABLE

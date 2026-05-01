@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "MauiApp1.slnx"
+    "dotnet.defaultSolution": "MauiApp1.slnx",
+    "git.ignoreLimitWarning": true
 }
