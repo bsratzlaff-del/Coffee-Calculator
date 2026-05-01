@@ -1,45 +1,77 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MauiApp1.ViewModels; 
+namespace MauiApp1.ViewModels;
+
 public class CalculatorViewModel : INotifyPropertyChanged
 {
-    private double _coffeeGrams;
-    private double _waterGrams;
+    private double? _coffeeGrams;
+    private double? _waterGrams;
     private double _currentRatio = 15; //default medium ratio
 
-    public double CoffeeGrams
+    public double CurrentRatio
     {
-        get => _coffeeGrams;
+        get => _currentRatio;
         set
         {
-            if (_coffeeGrams != value)
+            if (_currentRatio != value)
             {
-                _coffeeGrams = value;
+                _currentRatio = value;
                 OnPropertyChanged();
-
-                //When the coffee changes, updates water
-                _waterGrams = _coffeeGrams * _currentRatio;
-                OnPropertyChanged(nameof(WaterGrams));
+                WaterGrams = _coffeeGrams * _currentRatio;
             }
         }
     }
 
-    public double WaterGrams
+    public double? CoffeeGrams
+    {
+        get => _coffeeGrams;
+        set
+        {
+            if (value == null || value <= 0)
+            {
+                _coffeeGrams = null;
+                _waterGrams = null;
+                NotifyAll();
+                return;
+            }
+
+            if (_coffeeGrams != value)
+            {
+                _coffeeGrams = value;
+                _waterGrams = _coffeeGrams * _currentRatio;
+                NotifyAll();
+            }
+        }
+    }
+
+
+    public double? WaterGrams
     {
         get => _waterGrams;
         set
         {
+            if (value == null || value <= 0)
+            {
+                _waterGrams = null;
+                _coffeeGrams = null;
+                NotifyAll();
+                return;
+            }
+
             if (_waterGrams != value)
             {
                 _waterGrams = value;
-                OnPropertyChanged();
-
-                //When the water changes, updates coffee
                 _coffeeGrams = _waterGrams / _currentRatio;
-                OnPropertyChanged(nameof(CoffeeGrams));
+                NotifyAll();
             }
         }
+    }
+
+    private void NotifyAll()
+    {
+        OnPropertyChanged(nameof(CoffeeGrams));
+        OnPropertyChanged(nameof(WaterGrams));
     }
 
     //event tells UI value changed, redraw the screen
