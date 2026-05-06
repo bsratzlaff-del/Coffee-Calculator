@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MauiApp1.Services;
+using System.Windows.Input;
 
 namespace MauiApp1.ViewModels;
 
@@ -58,7 +59,7 @@ public class CalculatorViewModel : INotifyPropertyChanged
                 
                 if (_coffeeUnits is double c)
                 {
-                    _waterUnits = c * _currentRatio;
+                    _waterUnits = Math.Round(c * _currentRatio, 1);
                 }
                 else
                 {
@@ -92,7 +93,7 @@ public class CalculatorViewModel : INotifyPropertyChanged
 
                 if (_waterUnits is double w)
                 {
-                    _coffeeUnits = w / _currentRatio;
+                    _coffeeUnits = Math.Round(w / _currentRatio, 1);
                 }
                 else
                 {
@@ -103,6 +104,12 @@ public class CalculatorViewModel : INotifyPropertyChanged
             }
         }
     }
+    public ICommand ResetCommand => new Command(() => 
+    {
+        CoffeeUnits = null;
+        WaterUnits = null;
+        FileLogger.Log("Inputs Reset by User");
+    });
 
     private void NotifyAll()
     {
