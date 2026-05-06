@@ -1,0 +1,14 @@
+[2026-05-06 13:38:13] [DEBUG] App Session Started
+[2026-05-06 13:38:34] [DEBUG] Calculation triggered: Coffee=3, Water=45
+[2026-05-06 13:38:35] [DEBUG] Calculation triggered: Coffee=30, Water=450
+[2026-05-06 13:38:46] [DEBUG] Calculation triggered: Coffee=, Water=
+[2026-05-06 13:38:46] [DEBUG] Inputs Reset by User
+[2026-05-06 13:40:51] [DEBUG] App Session Started
+[2026-05-06 13:41:34] [DEBUG] Calculation triggered: Coffee=1, Water=15
+[2026-05-06 13:41:36] [DEBUG] Calculation triggered: Coffee=, Water=
+[2026-05-06 13:41:37] [DEBUG] Calculation triggered: Coffee=3, Water=45
+[2026-05-06 13:41:38] [DEBUG] Calculation triggered: Coffee=30, Water=450
+[2026-05-06 13:42:12] [DEBUG] Calculation triggered: Coffee=3, Water=51
+[2026-05-06 13:42:12] [DEBUG] Calculation triggered: Coffee=, Water=
+[2026-05-06 13:42:14] [DEBUG] Calculation triggered: Coffee=5, Water=85
+[2026-05-06 13:42:15] [DEBUG] Calculation triggered: Coffee=50, Water=850

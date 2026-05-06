@@ -18,10 +18,9 @@
         BackgroundColor="Gray" 
         Margin="0,20,0,0" />
 
-    <Label Text="Select Strength" FontSize="16" HorizontalOptions="Center" />
 
     <Label Text="{Binding CurrentRatio, StringFormat='Selected Ratio: 1:{0}'}"
-           FontSize="20"
+           FontSize="16"
            HorizontalOptions="Center" />
 
     <Picker Title="Select Brew Strength"

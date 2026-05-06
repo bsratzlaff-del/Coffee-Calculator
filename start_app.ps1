@@ -1,0 +1,1 @@
+Start-Job -ScriptBlock { & "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -avd CoffeeShop }
