@@ -1,6 +1,6 @@
-﻿using MauiApp1.ViewModels;
+﻿using MauiApp1;
 
-namespace MauiApp1.Views;
+namespace MauiApp1.ViewModels;
 
 public partial class MainPage : ContentPage
 {
@@ -22,11 +22,11 @@ public partial class MainPage : ContentPage
             // 3. Manually push the value to the ViewModel based on the ClassId
             if (entry.ClassId == "Coffee")
             {
-                if (vm.CoffeeGrams != val) vm.CoffeeGrams = val;
+                if (vm.CoffeeUnits != val) vm.CoffeeUnits = val;
             }
             else if (entry.ClassId == "Water")
             {
-                if (vm.WaterGrams != val) vm.WaterGrams = val;
+                if (vm.WaterUnits != val) vm.WaterUnits = val;
             }
         }
     }

@@ -1,8 +1,8 @@
 ﻿﻿using Microsoft.Extensions.Logging;
-using MauiApp1.ViewModels;
+using MauiApp1;
 using MauiApp1.Views;
 
-namespace MauiApp1;
+namespace MauiApp1.ViewModels;
 
 public static class MauiProgram
 {

@@ -3,10 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace MauiApp1.ViewModels;
 
+using MauiApp1;
+
 public class CalculatorViewModel : INotifyPropertyChanged
 {
-    private double? _coffeeGrams;
-    private double? _waterGrams;
+    private double? _coffeeUnits;
+    private double? _waterUnits;
     private double _currentRatio = 15; //default medium ratio
 
     public double CurrentRatio
@@ -18,51 +20,55 @@ public class CalculatorViewModel : INotifyPropertyChanged
             {
                 _currentRatio = value;
                 OnPropertyChanged();
-                WaterGrams = _coffeeGrams * _currentRatio;
+                WaterUnits = _coffeeUnits * _currentRatio;
             }
         }
     }
 
-    public double? CoffeeGrams
+    public double? CoffeeUnits
     {
-        get => _coffeeGrams;
+        get => _coffeeUnits;
         set
         {
-            if (value == null || value <= 0)
-            {
-                _coffeeGrams = null;
-                _waterGrams = null;
+            if (_coffeeUnits != value)
+{
+                _coffeeUnits = value;
+                // Tell C# "I know this isn't null, use the actual value"
+                _waterUnits = _coffeeUnits.Value * _currentRatio; 
+                
+                FileLogger.Log($"Calculation triggered: Coffee={_coffeeUnits}, Water={_waterUnits}");
                 NotifyAll();
-                return;
             }
 
-            if (_coffeeGrams != value)
+            // Inside WaterUnits setter
+            if (_waterUnits != value)
             {
-                _coffeeGrams = value;
-                _waterGrams = _coffeeGrams * _currentRatio;
+                _waterUnits = value;
+                // Tell C# to use the value for the division
+                _coffeeUnits = _waterUnits.Value / _currentRatio;
                 NotifyAll();
             }
         }
     }
 
 
-    public double? WaterGrams
+    public double? WaterUnits
     {
-        get => _waterGrams;
+        get => _waterUnits;
         set
         {
             if (value == null || value <= 0)
             {
-                _waterGrams = null;
-                _coffeeGrams = null;
+                _waterUnits = null;
+                _coffeeUnits = null;
                 NotifyAll();
                 return;
             }
 
-            if (_waterGrams != value)
+            if (_waterUnits != value)
             {
-                _waterGrams = value;
-                _coffeeGrams = _waterGrams / _currentRatio;
+                _waterUnits = value;
+                _coffeeUnits = _waterUnits / _currentRatio;
                 NotifyAll();
             }
         }
@@ -70,8 +76,8 @@ public class CalculatorViewModel : INotifyPropertyChanged
 
     private void NotifyAll()
     {
-        OnPropertyChanged(nameof(CoffeeGrams));
-        OnPropertyChanged(nameof(WaterGrams));
+        OnPropertyChanged(nameof(CoffeeUnits));
+        OnPropertyChanged(nameof(WaterUnits));
     }
 
     //event tells UI value changed, redraw the screen

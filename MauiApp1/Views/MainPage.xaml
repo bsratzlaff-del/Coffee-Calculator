@@ -6,11 +6,11 @@
 <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
     <Label Text="☕ Coffee Calculator" FontSize="32" HorizontalOptions="Center" />
 
-    <Label Text="Coffee (Grams)" />
-    <Entry ClassId="Coffee" Text="{Binding CoffeeGrams, TargetNullValue= ''}" TextChanged="OnEntryTextChanged" Keyboard="Numeric" Placeholder="e.g. 20" />
+    <Label Text="Coffee (Units)" />
+    <Entry ClassId="Coffee" Text="{Binding CoffeeUnits, TargetNullValue= ''}" TextChanged="OnEntryTextChanged" Keyboard="Numeric" Placeholder="e.g. 20" />
     
-    <Label Text="Water (Grams)" />
-    <Entry ClassId="Water" Text="{Binding WaterGrams, TargetNullValue= ''}" TextChanged="OnEntryTextChanged" Keyboard="Numeric" Placeholder="e.g. 300" />
+    <Label Text="Water (Units)" />
+    <Entry ClassId="Water" Text="{Binding WaterUnits, TargetNullValue= ''}" TextChanged="OnEntryTextChanged" Keyboard="Numeric" Placeholder="e.g. 300" />
 
     <Label Text="Current Ratio is 1:15" HorizontalOptions="Center" TextColor="Gray" />
 </VerticalStackLayout>
