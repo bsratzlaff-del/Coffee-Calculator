@@ -12,3 +12,16 @@
 [2026-05-06 13:42:12] [DEBUG] Calculation triggered: Coffee=, Water=
 [2026-05-06 13:42:14] [DEBUG] Calculation triggered: Coffee=5, Water=85
 [2026-05-06 13:42:15] [DEBUG] Calculation triggered: Coffee=50, Water=850
+[2026-05-06 14:17:47] [DEBUG] App Session Started
+[2026-05-06 14:18:08] [DEBUG] MATH CHECK: 8g Coffee * 1:15 Ratio = 120g Water
+[2026-05-06 14:18:09] [DEBUG] MATH CHECK: 89g Coffee * 1:15 Ratio = 1335g Water
+[2026-05-06 14:18:10] [DEBUG] MATH CHECK: 8g Coffee * 1:15 Ratio = 120g Water
+[2026-05-06 14:18:13] [DEBUG] MATH CHECK: 6g Coffee * 1:15 Ratio = 90g Water
+[2026-05-06 14:18:15] [DEBUG] MATH CHECK: 2g Coffee * 1:15 Ratio = 30g Water
+[2026-05-06 14:18:15] [DEBUG] MATH CHECK: 25g Coffee * 1:15 Ratio = 375g Water
+[2026-05-06 14:18:24] [DEBUG] Inputs Reset by User
+[2026-05-06 14:18:37] [DEBUG] MATH CHECK: 1g Water / 1:12 Ratio = 0.1g Coffee
+[2026-05-06 14:18:40] [DEBUG] MATH CHECK: 15g Water / 1:12 Ratio = 1.2g Coffee
+[2026-05-06 14:18:41] [DEBUG] MATH CHECK: 159g Water / 1:12 Ratio = 13.2g Coffee
+[2026-05-06 14:18:47] [DEBUG] MATH CHECK: 15g Water / 1:12 Ratio = 1.2g Coffee
+[2026-05-06 14:18:48] [DEBUG] MATH CHECK: 1g Water / 1:12 Ratio = 0.1g Coffee
