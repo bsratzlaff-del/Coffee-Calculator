@@ -10,6 +10,11 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
+		AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+		{
+			Services.FileLogger.Log($"CRITICAL CRASH: {e.ExceptionObject}", "FATAL");
+		};
+		
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()

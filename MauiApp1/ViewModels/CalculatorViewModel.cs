@@ -60,14 +60,13 @@ public class CalculatorViewModel : INotifyPropertyChanged
                 if (_coffeeUnits is double c)
                 {
                     _waterUnits = Math.Round(c * _currentRatio, 1);
+                    FileLogger.Log($"MATH CHECK: {c}g Coffee * 1:{_currentRatio} Ratio = {_waterUnits}g Water");
                 }
                 else
                 {
                     _waterUnits = null;
                 }
-
                 
-                FileLogger.Log($"Calculation triggered: Coffee={_coffeeUnits}, Water={_waterUnits}");
                 NotifyAll();
             }
         }
@@ -94,12 +93,13 @@ public class CalculatorViewModel : INotifyPropertyChanged
                 if (_waterUnits is double w)
                 {
                     _coffeeUnits = Math.Round(w / _currentRatio, 1);
+                    FileLogger.Log($"MATH CHECK: {w}g Water / 1:{_currentRatio} Ratio = {_coffeeUnits}g Coffee");
                 }
                 else
                 {
                     _coffeeUnits = null;
                 }
-                FileLogger.Log($"Water updated: {_waterUnits}. Coffee is now: {_coffeeUnits}");
+                
                 NotifyAll();
             }
         }
