@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+
 namespace MauiApp1.ViewModels;
 
 using MauiApp1;
@@ -11,6 +12,7 @@ public class CalculatorViewModel : INotifyPropertyChanged
     private double? _waterUnits;
     private double _currentRatio = 15; //default medium ratio
 
+
     public double CurrentRatio
     {
         get => _currentRatio;
@@ -20,7 +22,12 @@ public class CalculatorViewModel : INotifyPropertyChanged
             {
                 _currentRatio = value;
                 OnPropertyChanged();
-                WaterUnits = _coffeeUnits * _currentRatio;
+                
+                if (_coffeeUnits.HasValue)
+                {
+                    _waterUnits = _coffeeUnits.Value * _currentRatio;
+                    NotifyAll();
+                }
             }
         }
     }

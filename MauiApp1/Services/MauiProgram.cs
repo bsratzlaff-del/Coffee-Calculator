@@ -3,6 +3,7 @@ using MauiApp1;
 using MauiApp1.Views;
 using MauiApp1.ViewModels;
 
+
 namespace MauiApp1;
 
 public static class MauiProgram
@@ -27,4 +28,5 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+	
 }
