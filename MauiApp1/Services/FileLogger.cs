@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace MauiApp1;
+namespace MauiApp1.Services;
 
 public static class FileLogger
 {

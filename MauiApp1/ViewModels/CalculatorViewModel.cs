@@ -1,10 +1,10 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using MauiApp1.Services;
 
 namespace MauiApp1.ViewModels;
 
-using MauiApp1;
+
 
 public class CalculatorViewModel : INotifyPropertyChanged
 {
@@ -23,9 +23,9 @@ public class CalculatorViewModel : INotifyPropertyChanged
                 _currentRatio = value;
                 OnPropertyChanged();
                 
-                if (_coffeeUnits.HasValue)
+                if (_coffeeUnits is double c)
                 {
-                    _waterUnits = _coffeeUnits.Value * _currentRatio;
+                    _waterUnits = c * _currentRatio;
                     NotifyAll();
                 }
             }
@@ -38,21 +38,20 @@ public class CalculatorViewModel : INotifyPropertyChanged
         set
         {
             if (_coffeeUnits != value)
-{
+            {
                 _coffeeUnits = value;
-                // Tell C# "I know this isn't null, use the actual value"
-                _waterUnits = _coffeeUnits.Value * _currentRatio; 
+                
+                if (_coffeeUnits is double c)
+                {
+                    _waterUnits = c * _currentRatio;
+                }
+                else
+                {
+                    _waterUnits = null;
+                }
+
                 
                 FileLogger.Log($"Calculation triggered: Coffee={_coffeeUnits}, Water={_waterUnits}");
-                NotifyAll();
-            }
-
-            // Inside WaterUnits setter
-            if (_waterUnits != value)
-            {
-                _waterUnits = value;
-                // Tell C# to use the value for the division
-                _coffeeUnits = _waterUnits.Value / _currentRatio;
                 NotifyAll();
             }
         }
@@ -75,7 +74,16 @@ public class CalculatorViewModel : INotifyPropertyChanged
             if (_waterUnits != value)
             {
                 _waterUnits = value;
-                _coffeeUnits = _waterUnits / _currentRatio;
+
+                if (_waterUnits is double w)
+                {
+                    _coffeeUnits = w / _currentRatio;
+                }
+                else
+                {
+                    _coffeeUnits = null;
+                }
+                FileLogger.Log($"Water updated: {_waterUnits}. Coffee is now: {_coffeeUnits}");
                 NotifyAll();
             }
         }
