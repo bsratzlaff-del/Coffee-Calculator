@@ -4,6 +4,7 @@
              x:Class="MauiApp1.Views.MainPage">
 
 <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
     <Label Text="☕ Coffee Calculator" FontSize="32" HorizontalOptions="Center" />
 
     <Label Text="Coffee (Units)" />
@@ -12,6 +13,20 @@
     <Label Text="Water (Units)" />
     <Entry ClassId="Water" Text="{Binding WaterUnits, TargetNullValue= ''}" TextChanged="OnEntryTextChanged" Keyboard="Numeric" Placeholder="e.g. 300" />
 
-    <Label Text="Current Ratio is 1:15" HorizontalOptions="Center" TextColor="Gray" />
+    <Label Text="Select Strength" FontSize="18" HorizontalOptions="Center" />
+
+    <Label Text="{Binding CurrentRatio, StringFormat='Selected Ratio: 1:{0}'}"
+           FontSize="20"
+           HorizontalOptions="Center" />
+
+    <Picker Title="Select Brew Strength"
+            ItemsSource="{Binding AvailableRatios}"
+            SelectedItem="{Binding CurrentRatio, Mode=TwoWay}"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            TextColor="SaddleBrown"
+            TitleColor="Gray" />
+
 </VerticalStackLayout>
 </ContentPage>
+

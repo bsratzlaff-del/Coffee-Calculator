@@ -8,29 +8,44 @@ namespace MauiApp1.ViewModels;
 
 public class CalculatorViewModel : INotifyPropertyChanged
 {
+    // Inside CalculatorViewModel.cs
     private double? _coffeeUnits;
     private double? _waterUnits;
-    private double _currentRatio = 15; //default medium ratio
+    private double _currentRatio = 15; 
+    public List<double> AvailableRatios { get; } = new() { 12, 15, 17, 18, 20 };
 
+    public CalculatorViewModel()
+    {
+        try 
+        {
+            FileLogger.Log("App Session Started");
+        }
+        catch 
+        {
+            // If logging fails, don't let it crash the whole app!
+            System.Diagnostics.Debug.WriteLine("Initial log failed.");
+        }
+    }
 
     public double CurrentRatio
+{
+    get => _currentRatio;
+    set
     {
-        get => _currentRatio;
-        set
+        if (_currentRatio != value)
         {
-            if (_currentRatio != value)
+            _currentRatio = value;
+            OnPropertyChanged();
+            
+            // Recalculate water if coffee weight is already entered
+            if (_coffeeUnits is double c)
             {
-                _currentRatio = value;
-                OnPropertyChanged();
-                
-                if (_coffeeUnits is double c)
-                {
-                    _waterUnits = c * _currentRatio;
-                    NotifyAll();
-                }
+                _waterUnits = c * _currentRatio;
+                NotifyAll();
             }
         }
     }
+}
 
     public double? CoffeeUnits
     {
